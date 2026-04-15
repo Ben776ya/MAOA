@@ -2,14 +2,10 @@
 // src/pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/ui/Navigation.astro';
+import JourneyApp from '../components/journey/JourneyApp';
 ---
 
 <BaseLayout>
   <Navigation />
-  <main class="pt-16 min-h-screen flex items-center justify-center">
-    <div class="text-center">
-      <h1 class="font-heading text-5xl text-gold mb-4">MAOA</h1>
-      <p class="text-text-muted text-sm tracking-widest uppercase">Coming Soon</p>
-    </div>
-  </main>
+  <JourneyApp client:only="react" />
 </BaseLayout>
