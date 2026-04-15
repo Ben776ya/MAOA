@@ -1,6 +1,7 @@
 // src/components/journey/JourneyApp.tsx
 import { useReducer, useCallback } from 'react';
 import type { JourneyState, JourneyAction, Screen } from '../../types';
+import ArrivalScreen from './ArrivalScreen';
 
 const initialState: JourneyState = {
   screen: 'arrival',
@@ -76,24 +77,7 @@ export default function JourneyApp() {
   const renderScreen = () => {
     switch (state.screen) {
       case 'arrival':
-        return (
-          <div className="min-h-screen flex items-center justify-center text-center px-6">
-            <div>
-              <p className="text-gold-deep text-[10px] tracking-[4px] uppercase mb-6 font-body">
-                Professeur Boukind
-              </p>
-              <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-light text-text mb-8 leading-tight">
-                La beauté,<br />intelligemment révélée.
-              </h1>
-              <button
-                onClick={() => dispatch({ type: 'BEGIN' })}
-                className="inline-flex items-center px-10 py-4 border border-text/30 text-[11px] tracking-[3px] uppercase text-text hover:bg-text hover:text-bg-deep transition-all duration-300"
-              >
-                Commencer le parcours →
-              </button>
-            </div>
-          </div>
-        );
+        return <ArrivalScreen onBegin={() => dispatch({ type: 'BEGIN' })} />;
       default:
         return (
           <div className="min-h-screen flex items-center justify-center">
