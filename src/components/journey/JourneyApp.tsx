@@ -3,6 +3,7 @@ import { useReducer, useCallback } from 'react';
 import type { JourneyState, JourneyAction, Screen } from '../../types';
 import ArrivalScreen from './ArrivalScreen';
 import GenderScreen from './GenderScreen';
+import PathScreen from './PathScreen';
 
 const initialState: JourneyState = {
   screen: 'arrival',
@@ -81,6 +82,8 @@ export default function JourneyApp() {
         return <ArrivalScreen onBegin={() => dispatch({ type: 'BEGIN' })} />;
       case 'gender':
         return <GenderScreen onSelect={(gender) => dispatch({ type: 'SELECT_GENDER', gender })} />;
+      case 'path':
+        return <PathScreen onSelect={(path) => dispatch({ type: 'SELECT_PATH', path })} />;
       default:
         return (
           <div className="min-h-screen flex items-center justify-center">
