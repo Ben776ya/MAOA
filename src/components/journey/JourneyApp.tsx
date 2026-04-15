@@ -4,6 +4,10 @@ import type { JourneyState, JourneyAction, Screen } from '../../types';
 import ArrivalScreen from './ArrivalScreen';
 import GenderScreen from './GenderScreen';
 import PathScreen from './PathScreen';
+import SilhouetteScreen from './SilhouetteScreen';
+import ZoneDetailScreen from './ZoneDetailScreen';
+import LifeStageScreen from './LifeStageScreen';
+import ConcernScreen from './ConcernScreen';
 
 const initialState: JourneyState = {
   screen: 'arrival',
@@ -84,6 +88,26 @@ export default function JourneyApp() {
         return <GenderScreen onSelect={(gender) => dispatch({ type: 'SELECT_GENDER', gender })} />;
       case 'path':
         return <PathScreen onSelect={(path) => dispatch({ type: 'SELECT_PATH', path })} />;
+      case 'silhouette':
+        return (
+          <SilhouetteScreen
+            gender={state.gender!}
+            onSelectZone={(zone) => dispatch({ type: 'SELECT_ZONE', zone })}
+          />
+        );
+      case 'zone-detail':
+        return (
+          <ZoneDetailScreen
+            zoneId={state.zone!}
+            currentAnswers={state.zoneAnswers}
+            onAnswer={(answer) => dispatch({ type: 'ANSWER_ZONE_QUESTION', answer })}
+            onComplete={() => dispatch({ type: 'COMPLETE_ZONE_DETAIL' })}
+          />
+        );
+      case 'life-stage':
+        return <LifeStageScreen onSelect={(age) => dispatch({ type: 'SELECT_AGE', age })} />;
+      case 'concern':
+        return <ConcernScreen onSelect={(concern) => dispatch({ type: 'SELECT_CONCERN', concern })} />;
       default:
         return (
           <div className="min-h-screen flex items-center justify-center">
