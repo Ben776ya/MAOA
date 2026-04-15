@@ -1,0 +1,38 @@
+[
+  {
+    "quote": "Je me reconnais. Juste reposée.",
+    "name": "Sophie",
+    "age": 52,
+    "city": "Paris"
+  },
+  {
+    "quote": "Le Professeur Boukind a compris exactement ce que je voulais sans que j'aie besoin de trop expliquer.",
+    "name": "Nadia",
+    "age": 38,
+    "city": "Casablanca"
+  },
+  {
+    "quote": "Un résultat naturel, personne ne sait que j'ai eu quelque chose. C'est exactement ça, l'art.",
+    "name": "Isabelle",
+    "age": 45,
+    "city": "Lyon"
+  },
+  {
+    "quote": "J'ai voyagé depuis Dubaï spécialement. L'expérience entière était exceptionnelle.",
+    "name": "Amira",
+    "age": 34,
+    "city": "Dubaï"
+  },
+  {
+    "quote": "Mes amis me disent que j'ai l'air en forme. Personne ne devine pourquoi.",
+    "name": "Karim",
+    "age": 47,
+    "city": "Rabat"
+  },
+  {
+    "quote": "Du premier rendez-vous jusqu'au suivi, chaque étape était rassurante et professionnelle.",
+    "name": "Marie",
+    "age": 56,
+    "city": "Bruxelles"
+  }
+]

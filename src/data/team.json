@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Pr. Boukind",
+    "title": "Chirurgien Plasticien — Directeur",
+    "description": "Professeur agrégé en chirurgie plastique, reconstructrice et esthétique. Plus de 25 ans d'expertise au service de la beauté naturelle.",
+    "image": "/images/team/pr-boukind.jpg"
+  },
+  {
+    "name": "Dr. Amrani",
+    "title": "Médecine Esthétique",
+    "description": "Spécialiste des injections et des techniques de rajeunissement non-invasives. Approche douce et résultats naturels.",
+    "image": "/images/team/dr-amrani.jpg"
+  },
+  {
+    "name": "Dr. Benali",
+    "title": "Dermatologie Esthétique",
+    "description": "Expert en soins de la peau, peelings et traitements laser. Protocoles personnalisés pour chaque type de peau.",
+    "image": "/images/team/dr-benali.jpg"
+  },
+  {
+    "name": "Dr. El Fassi",
+    "title": "Chirurgie Esthétique",
+    "description": "Chirurgien spécialisé en chirurgie du visage et de la silhouette. Précision technique et sens artistique.",
+    "image": "/images/team/dr-elfassi.jpg"
+  }
+]

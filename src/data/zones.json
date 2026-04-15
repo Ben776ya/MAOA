@@ -1,0 +1,146 @@
+[
+  {
+    "id": "hair",
+    "label": "Cheveux",
+    "questions": [
+      {
+        "question": "Quel est votre principal souci capillaire ?",
+        "answers": ["Perte de cheveux", "Cheveux clairsemés", "Recul de la ligne frontale"]
+      },
+      {
+        "question": "Depuis combien de temps ?",
+        "answers": ["Moins d'un an", "1 à 3 ans", "Plus de 3 ans"]
+      },
+      {
+        "question": "Quel résultat espérez-vous ?",
+        "answers": ["Stopper la chute", "Densifier", "Retrouver une chevelure complète"]
+      }
+    ]
+  },
+  {
+    "id": "eyes",
+    "label": "Regard",
+    "questions": [
+      {
+        "question": "Qu'est-ce qui vous gêne le plus ?",
+        "answers": ["Paupières tombantes", "Poches sous les yeux", "Rides et pattes d'oie"]
+      },
+      {
+        "question": "Comment décririez-vous votre regard ?",
+        "answers": ["Fatigué", "Vieilli", "Asymétrique"]
+      },
+      {
+        "question": "Quel résultat recherchez-vous ?",
+        "answers": ["Un regard reposé", "Un regard plus jeune", "Un regard plus ouvert"]
+      }
+    ]
+  },
+  {
+    "id": "lips",
+    "label": "Lèvres",
+    "questions": [
+      {
+        "question": "Qu'aimeriez-vous améliorer ?",
+        "answers": ["Volume insuffisant", "Contour flou", "Asymétrie"]
+      },
+      {
+        "question": "Quel style recherchez-vous ?",
+        "answers": ["Naturel et subtil", "Pulpeux et défini", "Correction ciblée"]
+      },
+      {
+        "question": "Avez-vous déjà eu des injections ?",
+        "answers": ["Non, première fois", "Oui, il y a plus d'un an", "Oui, récemment"]
+      }
+    ]
+  },
+  {
+    "id": "neck",
+    "label": "Cou",
+    "questions": [
+      {
+        "question": "Qu'est-ce qui vous préoccupe ?",
+        "answers": ["Relâchement cutané", "Rides et plis", "Double menton"]
+      },
+      {
+        "question": "Depuis quand remarquez-vous ces changements ?",
+        "answers": ["Récemment", "Quelques années", "Depuis longtemps"]
+      },
+      {
+        "question": "Quel résultat espérez-vous ?",
+        "answers": ["Raffermir la peau", "Redéfinir l'ovale", "Rajeunir l'ensemble"]
+      }
+    ]
+  },
+  {
+    "id": "chest",
+    "label": "Poitrine",
+    "questions": [
+      {
+        "question": "Qu'aimeriez-vous changer ?",
+        "answers": ["Volume insuffisant", "Ptôse (affaissement)", "Asymétrie"]
+      },
+      {
+        "question": "Quel résultat recherchez-vous ?",
+        "answers": ["Plus de volume", "Plus de fermeté", "Meilleure harmonie"]
+      },
+      {
+        "question": "Avez-vous des contraintes particulières ?",
+        "answers": ["Aucune", "Activité sportive intense", "Projet de grossesse"]
+      }
+    ]
+  },
+  {
+    "id": "abdomen",
+    "label": "Ventre",
+    "questions": [
+      {
+        "question": "Qu'est-ce qui vous gêne le plus ?",
+        "answers": ["Excès de graisse", "Peau relâchée", "Les deux"]
+      },
+      {
+        "question": "Avez-vous eu des grossesses ou variations de poids ?",
+        "answers": ["Non", "Oui, une grossesse", "Oui, plusieurs"]
+      },
+      {
+        "question": "Quel résultat espérez-vous ?",
+        "answers": ["Un ventre plus plat", "Une peau raffermie", "Un remodelage complet"]
+      }
+    ]
+  },
+  {
+    "id": "hips",
+    "label": "Hanches",
+    "questions": [
+      {
+        "question": "Qu'aimeriez-vous améliorer ?",
+        "answers": ["Amas graisseux localisés", "Manque de galbe", "Culotte de cheval"]
+      },
+      {
+        "question": "Avez-vous essayé d'autres méthodes ?",
+        "answers": ["Non", "Sport et régime", "Traitements esthétiques"]
+      },
+      {
+        "question": "Quel résultat recherchez-vous ?",
+        "answers": ["Affiner", "Sculpter", "Rééquilibrer la silhouette"]
+      }
+    ]
+  },
+  {
+    "id": "thighs",
+    "label": "Cuisses",
+    "questions": [
+      {
+        "question": "Quelle zone vous préoccupe ?",
+        "answers": ["Intérieur des cuisses", "Extérieur des cuisses", "L'ensemble"]
+      },
+      {
+        "question": "Quel est votre souci principal ?",
+        "answers": ["Excès de volume", "Cellulite", "Relâchement cutané"]
+      },
+      {
+        "question": "Quel résultat espérez-vous ?",
+        "answers": ["Des cuisses affinées", "Une peau plus lisse", "Une silhouette harmonieuse"]
+      }
+    ]
+  }
+]
