@@ -1,0 +1,18 @@
+---
+// src/components/ui/Navigation.astro
+import ThemeToggle from './ThemeToggle';
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-bg-deep/80 backdrop-blur-md border-b border-line/50">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="font-heading text-xl text-gold tracking-wide">
+      MAOA
+    </a>
+    <div class="flex items-center gap-4">
+      <span class="hidden sm:block text-[10px] tracking-[3px] uppercase text-text-muted font-body">
+        Art in Aesthetic Medicine
+      </span>
+      <ThemeToggle client:load />
+    </div>
+  </div>
+</nav>
