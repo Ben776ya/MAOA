@@ -9,6 +9,8 @@ import ZoneDetailScreen from './ZoneDetailScreen';
 import LifeStageScreen from './LifeStageScreen';
 import ConcernScreen from './ConcernScreen';
 import RecommendationScreen from './RecommendationScreen';
+import BookingModal from './BookingModal';
+import ThankYouScreen from './ThankYouScreen';
 
 const initialState: JourneyState = {
   screen: 'arrival',
@@ -120,6 +122,8 @@ export default function JourneyApp() {
             onBook={() => dispatch({ type: 'OPEN_BOOKING' })}
           />
         );
+      case 'thank-you':
+        return <ThankYouScreen />;
       default:
         return (
           <div className="min-h-screen flex items-center justify-center">
@@ -148,6 +152,16 @@ export default function JourneyApp() {
       <div key={state.screen} className="screen-transition">
         {renderScreen()}
       </div>
+
+      {/* Booking Modal */}
+      {state.bookingOpen && (
+        <BookingModal
+          state={state}
+          treatmentIds={state.recommendedTreatmentIds}
+          onClose={() => dispatch({ type: 'CLOSE_BOOKING' })}
+          onComplete={() => dispatch({ type: 'BOOKING_COMPLETE' })}
+        />
+      )}
     </div>
   );
 }
