@@ -1,35 +1,39 @@
 // src/components/journey/SilhouetteSVG.tsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface SilhouetteSVGProps {
   gender: 'her' | 'him';
   onSelectZone: (zone: string) => void;
 }
 
-interface ZoneArea {
+interface ZoneSpot {
   id: string;
   label: string;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
+  cx: number;
+  cy: number;
+  r: number;
   labelX: number;
   labelY: number;
 }
 
-const zones: ZoneArea[] = [
-  { id: 'hair', label: 'Cheveux', x: 72, y: 4, width: 56, height: 30, labelX: 150, labelY: 20 },
-  { id: 'eyes', label: 'Regard', x: 78, y: 34, width: 44, height: 18, labelX: 150, labelY: 44 },
-  { id: 'lips', label: 'Lèvres', x: 84, y: 55, width: 32, height: 14, labelX: 150, labelY: 62 },
-  { id: 'neck', label: 'Cou', x: 82, y: 72, width: 36, height: 22, labelX: 150, labelY: 83 },
-  { id: 'chest', label: 'Poitrine', x: 55, y: 100, width: 90, height: 55, labelX: 165, labelY: 127 },
-  { id: 'abdomen', label: 'Ventre', x: 60, y: 158, width: 80, height: 55, labelX: 165, labelY: 185 },
-  { id: 'hips', label: 'Hanches', x: 50, y: 213, width: 100, height: 35, labelX: 165, labelY: 230 },
-  { id: 'thighs', label: 'Cuisses', x: 55, y: 250, width: 90, height: 75, labelX: 165, labelY: 288 },
+const zones: ZoneSpot[] = [
+  { id: 'hair', label: 'Cheveux', cx: 100, cy: 19, r: 18, labelX: 150, labelY: 20 },
+  { id: 'eyes', label: 'Regard', cx: 100, cy: 43, r: 12, labelX: 150, labelY: 44 },
+  { id: 'lips', label: 'Lèvres', cx: 100, cy: 62, r: 10, labelX: 150, labelY: 62 },
+  { id: 'neck', label: 'Cou', cx: 100, cy: 83, r: 12, labelX: 150, labelY: 83 },
+  { id: 'chest', label: 'Poitrine', cx: 100, cy: 127, r: 28, labelX: 165, labelY: 127 },
+  { id: 'abdomen', label: 'Ventre', cx: 100, cy: 185, r: 28, labelX: 165, labelY: 185 },
+  { id: 'hips', label: 'Hanches', cx: 100, cy: 230, r: 22, labelX: 165, labelY: 230 },
+  { id: 'thighs', label: 'Cuisses', cx: 100, cy: 288, r: 30, labelX: 165, labelY: 288 },
 ];
 
 export default function SilhouetteSVG({ gender, onSelectZone }: SilhouetteSVGProps) {
   const [hoveredZone, setHoveredZone] = useState<string | null>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia('(hover: none)').matches);
+  }, []);
 
   const outlinePath = gender === 'her'
     ? `M100 8 C80 8 72 20 72 35 C72 50 80 60 85 65 L88 70 C85 72 82 78 82 85
@@ -53,7 +57,19 @@ export default function SilhouetteSVG({ gender, onSelectZone }: SilhouetteSVGPro
 
   return (
     <svg viewBox="0 0 220 450" className="w-full max-w-xs mx-auto" fill="none">
-      {/* Silhouette outline */}
+      <defs>
+        <radialGradient id="zoneGlow">
+          <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.4" />
+          <stop offset="70%" stopColor="var(--gold)" stopOpacity="0.1" />
+          <stop offset="100%" stopColor="var(--gold)" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="zoneGlowHover">
+          <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.6" />
+          <stop offset="60%" stopColor="var(--gold)" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="var(--gold)" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
       <path
         d={outlinePath}
         stroke="var(--gold)"
@@ -62,47 +78,44 @@ export default function SilhouetteSVG({ gender, onSelectZone }: SilhouetteSVGPro
         className="draw-line"
       />
 
-      {/* Clickable zone overlays */}
       {zones.map((zone) => {
         const isHovered = hoveredZone === zone.id;
+        const showLabel = isHovered || isTouchDevice;
         return (
           <g key={zone.id}>
-            {/* Hitbox */}
-            <rect
-              x={zone.x}
-              y={zone.y}
-              width={zone.width}
-              height={zone.height}
-              rx="4"
-              fill={isHovered ? 'var(--gold)' : 'transparent'}
-              fillOpacity={isHovered ? 0.15 : 0}
-              stroke={isHovered ? 'var(--gold)' : 'transparent'}
-              strokeWidth="0.5"
-              className="cursor-pointer transition-all duration-300"
+            <circle
+              cx={zone.cx}
+              cy={zone.cy}
+              r={zone.r}
+              fill={isHovered ? 'url(#zoneGlowHover)' : 'url(#zoneGlow)'}
+              className={isHovered ? '' : 'zone-glow'}
+              style={isHovered ? { opacity: 0.3 } : undefined}
+              cursor="pointer"
               onMouseEnter={() => setHoveredZone(zone.id)}
               onMouseLeave={() => setHoveredZone(null)}
               onClick={() => onSelectZone(zone.id)}
             />
-            {/* Label line and text */}
-            {isHovered && (
+            {showLabel && (
               <>
                 <line
-                  x1={zone.x + zone.width}
-                  y1={zone.y + zone.height / 2}
+                  x1={zone.cx + zone.r}
+                  y1={zone.cy}
                   x2={zone.labelX - 5}
                   y2={zone.labelY}
                   stroke="var(--gold)"
                   strokeWidth="0.5"
                   strokeDasharray="2 2"
+                  opacity={isTouchDevice && !isHovered ? 0.4 : 0.8}
                 />
                 <text
                   x={zone.labelX}
                   y={zone.labelY + 4}
                   fill="var(--gold)"
-                  fontSize="10"
+                  fontSize={isTouchDevice && !isHovered ? '8' : '10'}
                   fontFamily="Inter, sans-serif"
                   letterSpacing="2"
-                  className="uppercase"
+                  opacity={isTouchDevice && !isHovered ? 0.5 : 1}
+                  style={{ textTransform: 'uppercase' }}
                 >
                   {zone.label}
                 </text>

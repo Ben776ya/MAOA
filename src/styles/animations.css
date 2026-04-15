@@ -78,3 +78,20 @@
   from { background-position: 200% 0; }
   to { background-position: -200% 0; }
 }
+
+/* Zone glow pulse */
+.zone-glow {
+  animation: zonePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes zonePulse {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.18; }
+}
+
+/* Mobile: always show zone labels */
+@media (hover: none) {
+  .zone-label-hover-only {
+    display: block !important;
+  }
+}
