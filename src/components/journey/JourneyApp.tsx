@@ -8,6 +8,7 @@ import SilhouetteScreen from './SilhouetteScreen';
 import ZoneDetailScreen from './ZoneDetailScreen';
 import LifeStageScreen from './LifeStageScreen';
 import ConcernScreen from './ConcernScreen';
+import RecommendationScreen from './RecommendationScreen';
 
 const initialState: JourneyState = {
   screen: 'arrival',
@@ -108,6 +109,17 @@ export default function JourneyApp() {
         return <LifeStageScreen onSelect={(age) => dispatch({ type: 'SELECT_AGE', age })} />;
       case 'concern':
         return <ConcernScreen onSelect={(concern) => dispatch({ type: 'SELECT_CONCERN', concern })} />;
+      case 'recommendations':
+        return (
+          <RecommendationScreen
+            gender={state.gender!}
+            path={state.path!}
+            zone={state.zone}
+            age={state.age}
+            concern={state.concern}
+            onBook={() => dispatch({ type: 'OPEN_BOOKING' })}
+          />
+        );
       default:
         return (
           <div className="min-h-screen flex items-center justify-center">
