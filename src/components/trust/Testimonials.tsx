@@ -13,8 +13,8 @@ export default function Testimonials() {
       </div>
       <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {testimonials.map((t, i) => (
-          <div key={i} className="p-6 border border-line bg-bg-deep">
-            <div className="text-gold text-2xl font-heading italic mb-4">"</div>
+          <div key={i} className="p-6 border border-line border-l-2 border-l-gold/30 bg-bg-deep">
+            <div className="text-gold text-3xl font-heading italic mb-4">"</div>
             <p className="text-text text-sm font-light leading-relaxed mb-6 italic">{t.quote}</p>
             <div className="flex items-center gap-3 pt-4 border-t border-line">
               <div>
