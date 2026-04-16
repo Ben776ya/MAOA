@@ -8,7 +8,7 @@ export default function ArrivalScreen({ onBegin }: ArrivalScreenProps) {
     <div className="min-h-screen flex items-center justify-center text-center px-6">
       <div className="max-w-2xl">
         {/* Gold decorative line */}
-        <div className="w-12 h-px bg-gold mx-auto mb-8 animate-fade-in" />
+        <div className="w-16 h-px bg-gradient-to-r from-gold-deep to-gold mx-auto mb-8 animate-fade-in" />
 
         <p className="text-gold-deep text-[10px] tracking-[4px] uppercase mb-6 font-body animate-fade-in-up" style={{ animationDelay: '0.2s', opacity: 0 }}>
           Professeur Boukind — Casablanca
@@ -34,7 +34,7 @@ export default function ArrivalScreen({ onBegin }: ArrivalScreenProps) {
         <div className="animate-fade-in-up" style={{ animationDelay: '0.8s', opacity: 0 }}>
           <button
             onClick={onBegin}
-            className="inline-flex items-center gap-3 px-10 py-4 border border-text/30 text-[11px] tracking-[3px] uppercase text-text hover:bg-text hover:text-bg-deep transition-all duration-300"
+            className="inline-flex items-center gap-3 px-10 py-4 border border-gold/30 text-[11px] tracking-[3px] uppercase text-text hover:bg-text hover:text-bg-deep transition-all duration-300"
           >
             Commencer le parcours
             <span className="text-gold">→</span>

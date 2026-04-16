@@ -141,7 +141,7 @@ export default function JourneyApp() {
           onClick={goBack}
           className="fixed top-20 left-6 z-40 text-text-muted hover:text-gold transition-colors text-sm flex items-center gap-2"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.5">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
           Retour
