@@ -8,6 +8,16 @@ import TeamGrid from '../trust/TeamGrid';
 import Testimonials from '../trust/Testimonials';
 import MedicalTourism from '../trust/MedicalTourism';
 
+function GoldDivider() {
+  return (
+    <div className="flex items-center justify-center py-0">
+      <div className="flex-1 h-px bg-gold/30" style={{ boxShadow: '0 0 20px rgba(201,168,124,0.1)' }} />
+      <div className="w-1.5 h-1.5 bg-gold/50 rotate-45 mx-4" />
+      <div className="flex-1 h-px bg-gold/30" style={{ boxShadow: '0 0 20px rgba(201,168,124,0.1)' }} />
+    </div>
+  );
+}
+
 function CategoryIcon({ category }: { category: string }) {
   const iconClass = "mx-auto mb-3";
   switch (category) {
@@ -163,15 +173,21 @@ export default function RecommendationScreen({
       </div>
 
       {/* Trust Layer */}
+      <GoldDivider />
       <ProfessorBio />
+      <GoldDivider />
       <ClinicShowcase />
+      <GoldDivider />
       <TeamGrid />
+      <GoldDivider />
       <Testimonials />
+      <GoldDivider />
       <MedicalTourism />
+      <GoldDivider />
 
       {/* Final CTA */}
       <section className="py-20 px-6 text-center">
-        <div className="w-12 h-px bg-gold mx-auto mb-8" />
+        <div className="w-16 h-px bg-gradient-to-r from-gold-deep to-gold mx-auto mb-8" />
         <h2 className="font-heading text-3xl font-light text-text mb-6">
           Prêt à commencer ?
         </h2>
