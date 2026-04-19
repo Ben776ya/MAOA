@@ -24,14 +24,14 @@
 
 /* Light theme */
 [data-theme='light'] {
-  --bg-deep: #FFFFFF;
-  --bg-base: #FAF7F2;
-  --bg-elevated: #F3ECDD;
-  --gold: #C9A87C;
-  --gold-deep: #A8895D;
-  --text: #1A1A1A;
+  --bg-deep: #F5F0E8;
+  --bg-base: #EDE7DB;
+  --bg-elevated: #E5DCCB;
+  --gold: #B8944F;
+  --gold-deep: #9A7A3E;
+  --text: #2C2420;
   --text-muted: #6B6560;
-  --line: #E8E2D5;
+  --line: #D8CFC0;
 }
 
 * {
