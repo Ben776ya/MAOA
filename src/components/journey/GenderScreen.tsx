@@ -7,16 +7,30 @@ function FemaleSilhouette() {
   return (
     <svg
       viewBox="0 0 200 500"
-      className="absolute top-[10px] left-1/2 -translate-x-1/2 h-[78%] opacity-20"
+      className="absolute top-[10px] left-1/2 -translate-x-1/2 h-[78%]"
       fill="none"
       stroke="var(--gold)"
-      strokeWidth="1.2"
+      strokeWidth="1.5"
     >
-      <ellipse cx="100" cy="42" rx="28" ry="34" />
-      <path d="M72 35 C65 20 68 10 80 8 C90 5 100 4 110 5 C125 8 132 18 130 35 C132 50 128 65 120 75 L118 80" strokeWidth="0.8" />
-      <path d="M88 72 L88 88 M112 72 L112 88" />
-      <path d="M88 88 C70 90 48 98 38 112 L32 130 C30 140 32 148 36 155 L42 168 C44 175 48 190 50 200 L55 230 C52 240 48 250 48 260 L50 290 C48 310 46 340 48 370 L50 420 C52 435 55 445 62 450 L70 452 L72 420 L75 380 C80 355 85 340 90 330 L95 320 C98 318 102 318 105 320 L110 330 C115 340 120 355 125 380 L128 420 L130 452 L138 450 C145 445 148 435 150 420 L152 370 C154 340 152 310 150 290 L148 260 C148 250 145 240 142 230 L148 200 C150 190 155 175 158 168 L162 155 C166 148 168 140 166 130 L162 112 C152 98 130 90 112 88" />
-      <path d="M55 200 C70 195 85 192 100 192 C115 192 130 195 145 200" strokeWidth="0.6" opacity="0.5" />
+      <defs>
+        <linearGradient id="silhouetteFillFemale" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.08" />
+          <stop offset="100%" stopColor="var(--gold)" stopOpacity="0.02" />
+        </linearGradient>
+      </defs>
+      {/* Head */}
+      <ellipse cx="100" cy="42" rx="28" ry="34" opacity="0.6" fill="url(#silhouetteFillFemale)" />
+      {/* Hair */}
+      <path d="M72 35 C65 20 68 10 80 8 C90 5 100 4 110 5 C125 8 132 18 130 35 C132 50 128 65 120 75 L118 80" strokeWidth="1" opacity="0.5" />
+      {/* Body */}
+      <path d="M88 72 L88 88 M112 72 L112 88" opacity="0.5" />
+      <path
+        d="M88 88 C70 90 48 98 38 112 L32 130 C30 140 32 148 36 155 L42 168 C44 175 48 190 50 200 L55 230 C52 240 48 250 48 260 L50 290 C48 310 46 340 48 370 L50 420 C52 435 55 445 62 450 L70 452 L72 420 L75 380 C80 355 85 340 90 330 L95 320 C98 318 102 318 105 320 L110 330 C115 340 120 355 125 380 L128 420 L130 452 L138 450 C145 445 148 435 150 420 L152 370 C154 340 152 310 150 290 L148 260 C148 250 145 240 142 230 L148 200 C150 190 155 175 158 168 L162 155 C166 148 168 140 166 130 L162 112 C152 98 130 90 112 88"
+        opacity="0.6"
+        fill="url(#silhouetteFillFemale)"
+      />
+      {/* Waistline */}
+      <path d="M55 200 C70 195 85 192 100 192 C115 192 130 195 145 200" strokeWidth="0.8" opacity="0.35" />
     </svg>
   );
 }
@@ -25,16 +39,30 @@ function MaleSilhouette() {
   return (
     <svg
       viewBox="0 0 200 500"
-      className="absolute top-[10px] left-1/2 -translate-x-1/2 h-[78%] opacity-20"
+      className="absolute top-[10px] left-1/2 -translate-x-1/2 h-[78%]"
       fill="none"
       stroke="var(--gold)"
-      strokeWidth="1.2"
+      strokeWidth="1.5"
     >
-      <ellipse cx="100" cy="40" rx="26" ry="32" />
-      <path d="M74 32 C72 18 78 8 90 6 C98 4 104 4 112 6 C124 8 128 18 126 32" strokeWidth="0.8" />
-      <path d="M85 68 L85 85 M115 68 L115 85" />
-      <path d="M85 85 C62 88 35 96 25 112 L20 132 C18 142 20 150 25 158 L35 175 C38 182 42 195 44 205 L48 235 C46 245 44 252 44 262 L46 295 C44 318 42 345 44 375 L46 425 C48 438 52 448 58 452 L68 455 L70 425 L74 382 C80 358 86 342 92 332 L96 322 C98 320 102 320 104 322 L108 332 C114 342 120 358 126 382 L130 425 L132 455 L142 452 C148 448 152 438 154 425 L156 375 C158 345 156 318 154 295 L152 262 C152 252 150 245 148 235 L152 205 C154 195 158 182 162 175 L172 158 C176 150 178 142 176 132 L172 112 C162 96 138 88 115 85" />
-      <path d="M44 175 C65 168 85 165 100 165 C115 165 135 168 152 175" strokeWidth="0.6" opacity="0.5" />
+      <defs>
+        <linearGradient id="silhouetteFillMale" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.08" />
+          <stop offset="100%" stopColor="var(--gold)" stopOpacity="0.02" />
+        </linearGradient>
+      </defs>
+      {/* Head */}
+      <ellipse cx="100" cy="40" rx="26" ry="32" opacity="0.6" fill="url(#silhouetteFillMale)" />
+      {/* Hair */}
+      <path d="M74 32 C72 18 78 8 90 6 C98 4 104 4 112 6 C124 8 128 18 126 32" strokeWidth="1" opacity="0.5" />
+      {/* Body */}
+      <path d="M85 68 L85 85 M115 68 L115 85" opacity="0.5" />
+      <path
+        d="M85 85 C62 88 35 96 25 112 L20 132 C18 142 20 150 25 158 L35 175 C38 182 42 195 44 205 L48 235 C46 245 44 252 44 262 L46 295 C44 318 42 345 44 375 L46 425 C48 438 52 448 58 452 L68 455 L70 425 L74 382 C80 358 86 342 92 332 L96 322 C98 320 102 320 104 322 L108 332 C114 342 120 358 126 382 L130 425 L132 455 L142 452 C148 448 152 438 154 425 L156 375 C158 345 156 318 154 295 L152 262 C152 252 150 245 148 235 L152 205 C154 195 158 182 162 175 L172 158 C176 150 178 142 176 132 L172 112 C162 96 138 88 115 85"
+        opacity="0.6"
+        fill="url(#silhouetteFillMale)"
+      />
+      {/* Shoulder line */}
+      <path d="M44 175 C65 168 85 165 100 165 C115 165 135 168 152 175" strokeWidth="0.8" opacity="0.35" />
     </svg>
   );
 }
