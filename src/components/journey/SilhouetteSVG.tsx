@@ -18,14 +18,15 @@ interface ZoneSpot {
 }
 
 const zones: ZoneSpot[] = [
-  { id: 'hair', label: 'Cheveux', cx: 100, cy: 22, r: 16, labelX: 155, labelY: 22, side: 'right' },
-  { id: 'eyes', label: 'Regard', cx: 100, cy: 45, r: 11, labelX: 40, labelY: 45, side: 'left' },
-  { id: 'lips', label: 'Lèvres', cx: 100, cy: 63, r: 9, labelX: 155, labelY: 63, side: 'right' },
-  { id: 'neck', label: 'Cou', cx: 100, cy: 82, r: 10, labelX: 40, labelY: 82, side: 'left' },
-  { id: 'chest', label: 'Poitrine', cx: 100, cy: 130, r: 30, labelX: 170, labelY: 130, side: 'right' },
-  { id: 'abdomen', label: 'Ventre', cx: 100, cy: 195, r: 28, labelX: 170, labelY: 195, side: 'right' },
-  { id: 'hips', label: 'Hanches', cx: 100, cy: 245, r: 24, labelX: 25, labelY: 245, side: 'left' },
-  { id: 'thighs', label: 'Cuisses', cx: 100, cy: 320, r: 30, labelX: 170, labelY: 320, side: 'right' },
+  { id: 'hair', label: 'Cheveux', cx: 100, cy: 22, r: 12, labelX: 155, labelY: 22, side: 'right' },
+  { id: 'eyes', label: 'Regard', cx: 100, cy: 42, r: 8, labelX: 40, labelY: 42, side: 'left' },
+  { id: 'nose', label: 'Nez', cx: 100, cy: 54, r: 7, labelX: 155, labelY: 54, side: 'right' },
+  { id: 'lips', label: 'Lèvres', cx: 100, cy: 65, r: 7, labelX: 40, labelY: 65, side: 'left' },
+  { id: 'neck', label: 'Cou', cx: 100, cy: 82, r: 8, labelX: 155, labelY: 82, side: 'right' },
+  { id: 'chest', label: 'Poitrine', cx: 100, cy: 130, r: 18, labelX: 170, labelY: 130, side: 'right' },
+  { id: 'abdomen', label: 'Ventre', cx: 100, cy: 195, r: 16, labelX: 170, labelY: 195, side: 'right' },
+  { id: 'hips', label: 'Hanches', cx: 100, cy: 245, r: 15, labelX: 170, labelY: 245, side: 'right' },
+  { id: 'thighs', label: 'Cuisses', cx: 100, cy: 320, r: 18, labelX: 170, labelY: 320, side: 'right' },
 ];
 
 // Traced from reference — female with hair, arms, hands (scaled to 220x480 viewBox)
