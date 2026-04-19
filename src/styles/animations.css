@@ -41,9 +41,9 @@
 
 /* Gold line drawing animation (for silhouette) */
 .draw-line {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: drawLine 2s ease forwards;
+  stroke-dasharray: 5000;
+  stroke-dashoffset: 5000;
+  animation: drawLine 2.5s ease forwards;
 }
 
 @keyframes drawLine {
