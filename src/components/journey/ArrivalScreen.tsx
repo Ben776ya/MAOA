@@ -11,6 +11,57 @@ export default function ArrivalScreen({ onBegin }: ArrivalScreenProps) {
       {/* Silk texture atmosphere */}
       <SilkBackground />
 
+      {/* Decorative hero images — floating behind content */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:block" aria-hidden="true">
+        {/* Left image — model portrait */}
+        <div
+          className="absolute left-[5%] top-[15%] w-52 h-72 overflow-hidden animate-fade-in-slow"
+          style={{ animationDelay: '1s', opacity: 0 }}
+        >
+          <div className="w-full h-full bg-bg-elevated/50 border border-line/30" />
+          <img
+            src="/images/hero/model-portrait.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity"
+            loading="lazy"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/80 via-transparent to-bg-deep/30" />
+        </div>
+
+        {/* Right image — lip procedure */}
+        <div
+          className="absolute right-[5%] top-[30%] w-48 h-64 overflow-hidden animate-fade-in-slow"
+          style={{ animationDelay: '1.4s', opacity: 0 }}
+        >
+          <div className="w-full h-full bg-bg-elevated/50 border border-line/30" />
+          <img
+            src="/images/hero/lip-procedure.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity"
+            loading="lazy"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/80 via-transparent to-bg-deep/30" />
+        </div>
+
+        {/* Bottom-left image — beauty/skin close-up */}
+        <div
+          className="absolute left-[8%] bottom-[10%] w-44 h-56 overflow-hidden animate-fade-in-slow"
+          style={{ animationDelay: '1.8s', opacity: 0 }}
+        >
+          <div className="w-full h-full bg-bg-elevated/50 border border-line/30" />
+          <img
+            src="/images/hero/beauty-closeup.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity"
+            loading="lazy"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/80 via-transparent to-bg-deep/30" />
+        </div>
+      </div>
+
       <div className="max-w-2xl relative z-10">
         {/* Gold decorative line */}
         <div className="w-16 h-px bg-gradient-to-r from-gold-deep to-gold mx-auto mb-8 animate-fade-in" />
