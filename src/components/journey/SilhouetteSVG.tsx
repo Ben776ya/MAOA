@@ -14,17 +14,18 @@ interface ZoneSpot {
   r: number;
   labelX: number;
   labelY: number;
+  side: 'left' | 'right';
 }
 
 const zones: ZoneSpot[] = [
-  { id: 'hair', label: 'Cheveux', cx: 100, cy: 19, r: 18, labelX: 150, labelY: 20 },
-  { id: 'eyes', label: 'Regard', cx: 100, cy: 43, r: 12, labelX: 150, labelY: 44 },
-  { id: 'lips', label: 'Lèvres', cx: 100, cy: 62, r: 10, labelX: 150, labelY: 62 },
-  { id: 'neck', label: 'Cou', cx: 100, cy: 83, r: 12, labelX: 150, labelY: 83 },
-  { id: 'chest', label: 'Poitrine', cx: 100, cy: 127, r: 28, labelX: 165, labelY: 127 },
-  { id: 'abdomen', label: 'Ventre', cx: 100, cy: 185, r: 28, labelX: 165, labelY: 185 },
-  { id: 'hips', label: 'Hanches', cx: 100, cy: 230, r: 22, labelX: 165, labelY: 230 },
-  { id: 'thighs', label: 'Cuisses', cx: 100, cy: 288, r: 30, labelX: 165, labelY: 288 },
+  { id: 'hair', label: 'Cheveux', cx: 100, cy: 22, r: 16, labelX: 155, labelY: 22, side: 'right' },
+  { id: 'eyes', label: 'Regard', cx: 100, cy: 45, r: 11, labelX: 40, labelY: 45, side: 'left' },
+  { id: 'lips', label: 'Lèvres', cx: 100, cy: 63, r: 9, labelX: 155, labelY: 63, side: 'right' },
+  { id: 'neck', label: 'Cou', cx: 100, cy: 82, r: 10, labelX: 40, labelY: 82, side: 'left' },
+  { id: 'chest', label: 'Poitrine', cx: 100, cy: 130, r: 30, labelX: 170, labelY: 130, side: 'right' },
+  { id: 'abdomen', label: 'Ventre', cx: 100, cy: 195, r: 28, labelX: 170, labelY: 195, side: 'right' },
+  { id: 'hips', label: 'Hanches', cx: 100, cy: 245, r: 24, labelX: 25, labelY: 245, side: 'left' },
+  { id: 'thighs', label: 'Cuisses', cx: 100, cy: 320, r: 30, labelX: 170, labelY: 320, side: 'right' },
 ];
 
 export default function SilhouetteSVG({ gender, onSelectZone }: SilhouetteSVGProps) {
@@ -35,87 +36,165 @@ export default function SilhouetteSVG({ gender, onSelectZone }: SilhouetteSVGPro
     setIsTouchDevice(window.matchMedia('(hover: none)').matches);
   }, []);
 
-  const outlinePath = gender === 'her'
-    ? `M100 8 C80 8 72 20 72 35 C72 50 80 60 85 65 L88 70 C85 72 82 78 82 85
-       L82 95 C70 100 55 110 50 130 L48 155 C46 165 50 175 55 180
-       L60 215 C55 225 52 240 55 250 L58 290 C56 310 55 330 58 350
-       L60 400 L62 430 L75 435 L80 350 L82 300 C90 275 95 260 100 250
-       C105 260 110 275 118 300 L120 350 L125 435 L138 430 L140 400
-       L142 350 C145 330 144 310 142 290 L145 250 C148 240 145 225 140 215
-       L155 180 C160 175 154 165 152 155 L150 130 C145 110 130 100 118 95
-       L118 85 C118 78 115 72 112 70 L115 65 C120 60 128 50 128 35
-       C128 20 120 8 100 8 Z`
-    : `M100 8 C82 8 74 20 74 35 C74 50 82 60 87 65 L89 70 C86 72 83 78 83 85
-       L83 95 C68 100 52 115 48 135 L46 160 C44 170 48 178 52 182
-       L60 218 C55 228 52 240 55 252 L58 290 C56 312 55 335 58 355
-       L60 405 L62 435 L77 438 L80 355 L83 305 C92 278 96 262 100 252
-       C104 262 108 278 117 305 L120 355 L123 438 L138 435 L140 405
-       L142 355 C145 335 144 312 142 290 L145 252 C148 240 145 228 140 218
-       L148 182 C152 178 156 170 154 160 L152 135 C148 115 132 100 117 95
-       L117 85 C117 78 114 72 111 70 L113 65 C118 60 126 50 126 35
-       C126 20 118 8 100 8 Z`;
+  // Complete female silhouette — head to feet with arms
+  const femaleOutline = `
+    M100 5 C82 5 72 18 72 32 C72 48 80 58 85 64 L88 70
+    C85 73 82 78 82 85 L82 92
+    C70 97 55 108 50 128 L48 152
+    C46 162 50 172 55 178
+    L42 200 C38 210 34 220 32 235 L30 250 L32 260 L36 260 L38 250
+    C40 240 44 225 48 215 L55 200
+    L60 225 C55 235 52 248 55 260
+    L58 295 C56 318 55 340 58 362
+    L60 410 L64 440 L68 460 L80 462
+    L82 440 L84 410 L86 370
+    C90 345 94 330 98 318
+    L100 312
+    L102 318 C106 330 110 345 114 370
+    L116 410 L118 440 L120 462
+    L132 460 L136 440 L140 410
+    L142 362 C145 340 144 318 142 295
+    L145 260 C148 248 145 235 140 225
+    L148 200 L155 215 C156 225 160 240 162 250
+    L164 260 L168 260 L170 250
+    L168 235 C166 220 162 210 158 200
+    L148 178 C152 172 154 162 152 152
+    L150 128 C145 108 130 97 118 92
+    L118 85 C118 78 115 73 112 70
+    L115 64 C120 58 128 48 128 32
+    C128 18 118 5 100 5 Z`;
+
+  // Complete male silhouette — head to feet with arms, broader shoulders
+  const maleOutline = `
+    M100 5 C84 5 74 18 74 32 C74 48 82 58 87 64 L89 70
+    C86 73 83 78 83 85 L83 92
+    C68 97 50 110 46 132 L44 158
+    C42 168 46 176 50 180
+    L38 202 C34 212 30 222 28 238 L26 252 L28 262 L32 262 L34 252
+    C36 242 40 228 44 218 L52 202
+    L58 228 C53 238 50 250 53 262
+    L56 298 C54 320 53 345 56 368
+    L58 418 L62 445 L66 465 L80 468
+    L82 445 L84 418 L86 378
+    C92 352 96 335 100 322
+    L100 316
+    L100 322 C104 335 108 352 114 378
+    L116 418 L118 445 L120 468
+    L134 465 L138 445 L142 418
+    L144 368 C147 345 146 320 144 298
+    L147 262 C150 250 147 238 142 228
+    L150 202 L156 218 C160 228 164 242 166 252
+    L168 262 L172 262 L174 252
+    L172 238 C170 222 166 212 162 202
+    L152 180 C156 176 158 168 156 158
+    L154 132 C150 110 132 97 117 92
+    L117 85 C117 78 114 73 111 70
+    L113 64 C118 58 126 48 126 32
+    C126 18 116 5 100 5 Z`;
+
+  const outlinePath = gender === 'her' ? femaleOutline : maleOutline;
 
   return (
-    <svg viewBox="0 0 220 450" className="w-full max-w-xs mx-auto" fill="none">
+    <svg viewBox="0 0 220 480" className="w-full max-w-xs mx-auto" fill="none">
       <defs>
         <radialGradient id="zoneGlow">
-          <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.4" />
-          <stop offset="70%" stopColor="var(--gold)" stopOpacity="0.1" />
+          <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.5" />
+          <stop offset="50%" stopColor="var(--gold)" stopOpacity="0.2" />
           <stop offset="100%" stopColor="var(--gold)" stopOpacity="0" />
         </radialGradient>
         <radialGradient id="zoneGlowHover">
-          <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.6" />
-          <stop offset="60%" stopColor="var(--gold)" stopOpacity="0.2" />
+          <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.8" />
+          <stop offset="50%" stopColor="var(--gold)" stopOpacity="0.3" />
           <stop offset="100%" stopColor="var(--gold)" stopOpacity="0" />
         </radialGradient>
+        <linearGradient id="bodyFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.06" />
+          <stop offset="50%" stopColor="var(--gold)" stopOpacity="0.03" />
+          <stop offset="100%" stopColor="var(--gold)" stopOpacity="0.06" />
+        </linearGradient>
       </defs>
 
+      {/* Body fill — subtle shading inside the silhouette */}
+      <path
+        d={outlinePath}
+        fill="url(#bodyFill)"
+        stroke="none"
+      />
+
+      {/* Body outline — visible gold stroke */}
       <path
         d={outlinePath}
         stroke="var(--gold)"
-        strokeWidth="1"
-        opacity="0.6"
+        strokeWidth="1.2"
+        opacity="0.7"
         className="draw-line"
       />
 
+      {/* Zone hotspots and labels */}
       {zones.map((zone) => {
         const isHovered = hoveredZone === zone.id;
-        const showLabel = isHovered || isTouchDevice;
+        const showLabel = true; // Always show labels for clarity
+
+        // Connector line endpoints
+        const connectorStartX = zone.side === 'right'
+          ? zone.cx + zone.r
+          : zone.cx - zone.r;
+        const connectorEndX = zone.side === 'right'
+          ? zone.labelX - 5
+          : zone.labelX + 30;
+        const textAnchor = zone.side === 'right' ? 'start' : 'end';
+        const textX = zone.side === 'right' ? zone.labelX : zone.labelX + 25;
+
         return (
-          <g key={zone.id}>
+          <g key={zone.id} style={{ cursor: 'pointer' }}>
+            {/* Clickable zone circle */}
             <circle
               cx={zone.cx}
               cy={zone.cy}
               r={zone.r}
               fill={isHovered ? 'url(#zoneGlowHover)' : 'url(#zoneGlow)'}
               className={isHovered ? '' : 'zone-glow'}
-              style={isHovered ? { opacity: 0.3 } : undefined}
-              cursor="pointer"
               onMouseEnter={() => setHoveredZone(zone.id)}
               onMouseLeave={() => setHoveredZone(null)}
               onClick={() => onSelectZone(zone.id)}
             />
+
+            {/* Zone ring border */}
+            <circle
+              cx={zone.cx}
+              cy={zone.cy}
+              r={zone.r}
+              fill="none"
+              stroke="var(--gold)"
+              strokeWidth="0.5"
+              opacity={isHovered ? 0.6 : 0.25}
+              style={{ pointerEvents: 'none' }}
+            />
+
+            {/* Connector line and label */}
             {showLabel && (
               <>
                 <line
-                  x1={zone.cx + zone.r}
+                  x1={connectorStartX}
                   y1={zone.cy}
-                  x2={zone.labelX - 5}
+                  x2={connectorEndX}
                   y2={zone.labelY}
                   stroke="var(--gold)"
                   strokeWidth="0.5"
                   strokeDasharray="2 2"
-                  opacity={isTouchDevice && !isHovered ? 0.4 : 0.8}
+                  opacity={isHovered ? 0.8 : 0.35}
+                  style={{ pointerEvents: 'none' }}
                 />
                 <text
-                  x={zone.labelX}
+                  x={textX}
                   y={zone.labelY + 4}
                   fill="var(--gold)"
-                  fontSize={isTouchDevice && !isHovered ? '8' : '10'}
+                  fontSize={isHovered ? '10' : '8'}
                   fontFamily="Inter, sans-serif"
                   letterSpacing="2"
-                  opacity={isTouchDevice && !isHovered ? 0.5 : 1}
-                  style={{ textTransform: 'uppercase' }}
+                  textAnchor={textAnchor}
+                  opacity={isHovered ? 1 : 0.55}
+                  style={{ textTransform: 'uppercase', pointerEvents: 'none' }}
                 >
                   {zone.label}
                 </text>

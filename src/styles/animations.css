@@ -85,8 +85,8 @@
 }
 
 @keyframes zonePulse {
-  0%, 100% { opacity: 0.12; }
-  50% { opacity: 0.18; }
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.75; }
 }
 
 /* Mobile: always show zone labels */
