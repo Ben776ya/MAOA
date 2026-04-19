@@ -11,22 +11,22 @@ export default function ArrivalScreen({ onBegin }: ArrivalScreenProps) {
       {/* Silk texture atmosphere */}
       <SilkBackground />
 
-      {/* Decorative hero images — floating behind content */}
+      {/* Decorative hero images — floating behind content, hidden when no image */}
       <div className="absolute inset-0 pointer-events-none hidden lg:block" aria-hidden="true">
         {/* Left image — model portrait */}
         <div
           className="absolute left-[5%] top-[15%] w-52 h-72 overflow-hidden animate-fade-in-slow"
           style={{ animationDelay: '1s', opacity: 0 }}
         >
-          <div className="w-full h-full bg-bg-elevated/50 border border-line/30" />
           <img
             src="/images/hero/model-portrait.jpg"
             alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity"
+            className="w-full h-full object-cover opacity-50 mix-blend-luminosity"
             loading="lazy"
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            onError={(e) => { (e.currentTarget.parentElement as HTMLElement).style.display = 'none'; }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/80 via-transparent to-bg-deep/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/90 via-transparent to-bg-deep/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-bg-deep/50 via-transparent to-bg-deep/50" />
         </div>
 
         {/* Right image — lip procedure */}
@@ -34,15 +34,15 @@ export default function ArrivalScreen({ onBegin }: ArrivalScreenProps) {
           className="absolute right-[5%] top-[30%] w-48 h-64 overflow-hidden animate-fade-in-slow"
           style={{ animationDelay: '1.4s', opacity: 0 }}
         >
-          <div className="w-full h-full bg-bg-elevated/50 border border-line/30" />
           <img
             src="/images/hero/lip-procedure.jpg"
             alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity"
+            className="w-full h-full object-cover opacity-50 mix-blend-luminosity"
             loading="lazy"
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            onError={(e) => { (e.currentTarget.parentElement as HTMLElement).style.display = 'none'; }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/80 via-transparent to-bg-deep/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/90 via-transparent to-bg-deep/40" />
+          <div className="absolute inset-0 bg-gradient-to-l from-bg-deep/50 via-transparent to-bg-deep/50" />
         </div>
 
         {/* Bottom-left image — beauty/skin close-up */}
@@ -50,15 +50,15 @@ export default function ArrivalScreen({ onBegin }: ArrivalScreenProps) {
           className="absolute left-[8%] bottom-[10%] w-44 h-56 overflow-hidden animate-fade-in-slow"
           style={{ animationDelay: '1.8s', opacity: 0 }}
         >
-          <div className="w-full h-full bg-bg-elevated/50 border border-line/30" />
           <img
             src="/images/hero/beauty-closeup.jpg"
             alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity"
+            className="w-full h-full object-cover opacity-50 mix-blend-luminosity"
             loading="lazy"
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            onError={(e) => { (e.currentTarget.parentElement as HTMLElement).style.display = 'none'; }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/80 via-transparent to-bg-deep/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg-deep/90 via-transparent to-bg-deep/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-bg-deep/50 via-transparent to-bg-deep/50" />
         </div>
       </div>
 
