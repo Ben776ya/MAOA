@@ -94,3 +94,16 @@ body {
 [data-theme='light'] .silk-wave-path {
   opacity: 0.1;
 }
+
+/* Silhouette image theming */
+/* Dark mode: black silhouette → gold tint */
+.silhouette-img {
+  filter: invert(72%) sepia(25%) saturate(600%) hue-rotate(350deg) brightness(85%);
+  opacity: 0.45;
+}
+
+/* Light mode: keep darker, warm tint */
+[data-theme='light'] .silhouette-img {
+  filter: sepia(20%) brightness(30%);
+  opacity: 0.25;
+}
