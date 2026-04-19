@@ -1,12 +1,17 @@
 // src/components/journey/ArrivalScreen.tsx
+import SilkBackground from '../ui/SilkBackground';
+
 interface ArrivalScreenProps {
   onBegin: () => void;
 }
 
 export default function ArrivalScreen({ onBegin }: ArrivalScreenProps) {
   return (
-    <div className="min-h-screen flex items-center justify-center text-center px-6">
-      <div className="max-w-2xl">
+    <div className="min-h-screen flex items-center justify-center text-center px-6 relative overflow-hidden">
+      {/* Silk texture atmosphere */}
+      <SilkBackground />
+
+      <div className="max-w-2xl relative z-10">
         {/* Gold decorative line */}
         <div className="w-16 h-px bg-gradient-to-r from-gold-deep to-gold mx-auto mb-8 animate-fade-in" />
 
